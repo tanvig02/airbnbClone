@@ -4,8 +4,8 @@ const { EMAIL, PASSWORD } = require("../env.js");
 const Mailgen = require("mailgen");
 
 const sendMail = async (req, res) => {
-  // const { userEmail, place, checkin, checkout, price } = req.body;
-  const userEmail = "tanvigaikwad2002@gmail.com";
+  const { userEmail, place, checkin, checkout, price } = req.body;
+  // const userEmail = "tanvigaikwad2002@gmail.com";
   console.log("tanvi mail sending");
   console.log(EMAIL, PASSWORD);
 
@@ -34,14 +34,14 @@ const sendMail = async (req, res) => {
       table: {
         data: [
           {
-            // place: `${place}`,
-            // checkin: `${checkin}`,
-            // checkout: `${checkout}`,
-            // price: `${price}`,
-            pname: "Manali Villa",
-            checkin: "2/6/23",
-            checkout: "5/6/23",
-            price: "RS 10000",
+            place: `${place}`,
+            checkin: `${checkin}`,
+            checkout: `${checkout}`,
+            price: `${price}`,
+            // pname: "Manali Villa",
+            // checkin: "2/6/23",
+            // checkout: "5/6/23",
+            // price: "RS 10000",
           },
         ],
         outro: "Have a Safe Trip, Enjoy your Holidays",

@@ -102,7 +102,7 @@ router.post("/:id", async (req, res) => {
 
       const data = {
         userEmail: userId.email,
-        pname: bookPlace.place.title,
+        place: bookPlace.place.title,
         checkin: bookPlace.checkIn,
         checkout: bookPlace.checkOut,
         price: bookPlace.price,
@@ -111,20 +111,20 @@ router.post("/:id", async (req, res) => {
       console.log("sending mail");
 
       //SENDING MAIL
-      // await axios
-      //   .post("http://localhost:8000/booking/confirm")
-      //   .then((res) => {
-      //     console.log(
-      //       "[bookingController : placeBooked] after making axios post request to MAILER!",
-      //       res.data
-      //     );
-      //   })
-      //   .catch(function (error) {
-      //     console.log(
-      //       "[bookingController : placeBooked] error after making axios post request to MAILER",
-      //       error
-      //     );
-      //   });
+      await axios
+        .post("http://localhost:8000/booking/confirm")
+        .then((res) => {
+          console.log(
+            "[bookingController : placeBooked] after making axios post request to MAILER!",
+            data
+          );
+        })
+        .catch(function (error) {
+          console.log(
+            "[bookingController : placeBooked] error after making axios post request to MAILER",
+            error
+          );
+        });
 
       res.status(200).json(bookPlace);
     } else {

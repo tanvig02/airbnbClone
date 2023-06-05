@@ -7,7 +7,7 @@ const mongoose = require("mongoose");
 const cloudinary = require("../utils/coludinary");
 const { resolve } = require("path");
 
-// app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
 app.use(
@@ -35,30 +35,7 @@ const userAccount = async (req, res) => {
   res.status(200).json(posts);
 };
 
-//get a single post-- in booking routes
-// const getPost = async (req, res) => {
-//   const { id } = req.params;
-//   if (!mongoose.Types.ObjectId.isValid(id)) {
-//     return res.status(400).json({ error: "no such post" });
-//   }
-
-//   const post = await Post.findById(id);
-
-//   if (!post) {
-//     return res.status(400).json({ error: "no such post" });
-//   }
-//   res.status(200).json(post);
-// };
-
 const uploadBase64ImageToCloudinary = async (image) => {
-  //url
-  // const result = await cloudinary.uploader.upload(image, {
-  //   folder: "PlacePhoto",
-  // });
-  // console.log(result), 12;
-  // const res = { public_id: result.public_id, url: result.url };
-  // console.log(res);
-  // return res;
   return new Promise((resolve, reject) => {
     const uploadOptions = {
       folder: "PlacePhoto",
@@ -104,13 +81,6 @@ const createPost = async (req, res) => {
     addedPhotos,
     maxGuest,
   } = req.body;
-  // const userId = req.body.userId;
-
-  // const result = await cloudinary.uploader.upload(photo, {
-  //   folder: "PlacePhoto",
-  //   // width: 300,
-  //   // crop: "scale",
-  // });
 
   try {
     const ownerData = await User.findById(userId);
@@ -129,7 +99,6 @@ const createPost = async (req, res) => {
       checkIn,
       checkOut,
       price,
-      // photo: cldPhoto,
       photos: cloudinaryUrls,
       maxGuest,
     });

@@ -3,7 +3,7 @@ const cors = require("cors");
 const app = express();
 const userModel = require("../models/userSchema");
 const Post = require("../models/postSchema");
-const bcrypt = require("bcrypt");
+const bcryptjs = require("bcryptjs");
 const validator = require("validator");
 const jwt = require("jsonwebtoken");
 
@@ -58,8 +58,8 @@ const registerUser = async (req, res) => {
       return res.status(400).json({ msg: "email already exist" });
     } else {
       //hasing the password
-      const salt = await bcrypt.genSalt(10);
-      const hash = await bcrypt.hash(password, salt);
+      const salt = await bcryptjs.genSalt(10);
+      const hash = await bcryptjs.hash(password, salt);
 
       //creating new user
       const user = await userModel.create({
@@ -105,7 +105,7 @@ const loginUser = async (req, res) => {
     }
 
     const userName = user.userName;
-    const userPass = await bcrypt.compare(password, user.password);
+    const userPass = await bcryptjs.compare(password, user.password);
     if (!userPass) {
       return res.status(400).json({ msg: "Incorrect password" });
     }

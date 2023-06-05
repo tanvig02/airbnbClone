@@ -1,5 +1,6 @@
 const express = require("express");
-const mongoose = require("mongoose");
+// const mongoose = require("mongoose");
+const app = express();
 const cors = require("cors");
 const bodyParser = require("body-parser");
 const path = require("path");
@@ -12,7 +13,6 @@ const paymentRoute = require("./routes/paymentPage");
 require("dotenv").config();
 
 //middleware
-const app = express();
 
 app.use(bodyParser.json({ limit: "60mb" }));
 app.use(bodyParser.urlencoded({ limit: "60mb", extended: true }));
@@ -26,6 +26,8 @@ app.use(
   })
 );
 
+require("./mongo_connection/connection");
+
 //routes
 app.use("/", homePage);
 
@@ -38,9 +40,9 @@ app.use("/bookpayment", paymentRoute);
 
 // app.use("/verify", paymentRoute);
 
-mongoose.connect(process.env.DB_URL).then(() => {
-  console.log("connected to db");
-});
+// mongoose.connect(process.env.DB_URL).then(() => {
+//   console.log("connected to db");
+// });
 
 app.use(express.static(path.join(__dirname, "../client/build")));
 app.get("*", (req, res) => {

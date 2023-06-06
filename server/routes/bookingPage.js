@@ -112,7 +112,9 @@ router.post("/:id", async (req, res) => {
 
       //SENDING MAIL
       await axios
-        .post("http://localhost:8000/booking/confirm")
+        .post(
+          "https://airbnbclone-production-699f.up.railway.app/booking/confirm"
+        )
         .then((res) => {
           console.log(
             "[bookingController : placeBooked] after making axios post request to MAILER!",

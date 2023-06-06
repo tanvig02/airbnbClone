@@ -12,9 +12,11 @@ const mongoose = require("mongoose");
 //     console.log("connection failed");
 //   });
 
+const url = process.env.DB_URL;
+
 const connectDB = async () => {
   try {
-    const conn = await mongoose.connect(process.env.DB_URL, {
+    const conn = await mongoose.connect(url, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     });

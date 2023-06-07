@@ -26,7 +26,7 @@ const Navbar = () => {
         <div className="flex justify-between items-center space-x-4">
           <Link to="/" className="flex space-x-2 no-underline items-center">
             <SiAirbnb className="text-red-500 w-8 h-auto md:w-10" />
-            <h1 className="text-red-500 font-semibold md:block text-2xl">
+            <h1 className="text-red-500 font-semibold hidden md:block text-2xl">
               airbnb
             </h1>
           </Link>

@@ -10,7 +10,6 @@ const Hero = () => {
       (response) => {
         setPlaces(response.data);
         console.log(places);
-        // console.log(places[0].imgLink);
       },
       {
         headers: { "Content-type": "application/json" },

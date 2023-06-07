@@ -8,9 +8,9 @@ import Datepicker from "react-tailwindcss-datepicker";
 export default function BookingWidget({ place }) {
   const [checkIn, setCheckIn] = useState("");
   const [checkOut, setCheckOut] = useState("");
-  const [numberOfGuests, setNumberOfGuests] = useState(1);
+  const [numberOfGuests, setNumberOfGuests] = useState("");
   const [name, setName] = useState("");
-  const [phone, setPhone] = useState("7854896589");
+  const [phone, setPhone] = useState("");
   const [error, setError] = useState("");
   const [amount, setAmount] = useState("");
   const [placeData, setPlaceData] = useState();

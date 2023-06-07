@@ -63,9 +63,13 @@ const verify = async (req, res) => {
   console.log("sig generarted ", expectedSignature);
 
   if (expectedSignature === razorpay_signature) {
-    res.redirect(`http://localhost:3000/bookPayment/confirm`);
+    res.redirect(
+      `https://airbnbclone-production-699f.up.railway.app/bookPayment/confirm`
+    );
   } else {
-    res.redirect(`http://localhost:3000/bookPayment/Notconfirm`);
+    res.redirect(
+      `https://airbnbclone-production-699f.up.railway.app/bookPayment/Notconfirm`
+    );
     res.status(400).json({ success: false });
   }
   // try {

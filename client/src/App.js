@@ -18,6 +18,7 @@ import UpdateForm from "./PlaceBooking/UpdateForm";
 import ProfilePage from "./UserPages/ProfilePage";
 
 axios.defaults.baseURL = "https://airbnbclone-production-699f.up.railway.app/";
+// axios.defaults.baseURL = "http://localhost:8000/";
 
 function App() {
   const { user } = useAuthContext();

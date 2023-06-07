@@ -14,8 +14,8 @@ const dotenv = require("dotenv");
 
 //middleware
 
-// app.use(bodyParser.json({ limit: "60mb" }));
-// app.use(bodyParser.urlencoded({ limit: "60mb", extended: true }));
+app.use(bodyParser.json({ limit: "60mb" }));
+app.use(bodyParser.urlencoded({ limit: "60mb", extended: true }));
 
 app.use(express.json());
 

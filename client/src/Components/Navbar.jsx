@@ -21,7 +21,7 @@ const Navbar = () => {
     setNav(!nav);
   };
   return (
-    <div className="w-full sticky top-0 z-10 bg-white border-b border-gray-300">
+    <div className=" sticky top-0 z-10 bg-white border-b border-gray-300">
       <div className="max-w-[1240px] xl:mx-auto mx-10 h-[80px] pt-3">
         <div className="flex justify-between items-center space-x-4">
           <Link to="/" className="flex space-x-2 no-underline items-center">
